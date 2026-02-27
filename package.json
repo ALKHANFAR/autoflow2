@@ -2,13 +2,18 @@
   "name": "autoflow-v5",
   "version": "5.0.0",
   "description": "AutoFlow — أذكى نظام أتمتة عربي مبني على Activepieces",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "sync": "node sync/fetch-all-tools.js",
     "sync:dry": "node sync/fetch-all-tools.js --dry-run",
     "sync:tool": "node sync/fetch-all-tools.js --tool",
     "validate": "node tools/validate.js",
     "test": "node tools/validate.js --test",
     "test:verbose": "node tools/validate.js --test --verbose"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
   },
   "author": "ALKHANFAR",
   "license": "MIT",

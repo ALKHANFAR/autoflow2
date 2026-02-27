@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoFlow v5 — نظام الأتمتة الذكي</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0f;color:#e2e8f0;min-height:100vh}
+.header{background:linear-gradient(135deg,#065f46,#064e3b,#022c22);padding:24px;text-align:center;border-bottom:1px solid #10b981}
+.header h1{font-size:28px;color:#fff;margin-bottom:4px}
+.header p{color:#6ee7b7;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:900px;margin:16px auto 0;padding:0 16px}
+.stat{background:rgba(255,255,255,0.08);border-radius:12px;padding:12px;text-align:center}
+.stat .num{font-size:24px;font-weight:800;color:#34d399}
+.stat .lbl{font-size:11px;color:#9ca3af;margin-top:2px}
+.tabs{display:flex;gap:8px;max-width:900px;margin:20px auto 0;padding:0 16px;overflow-x:auto}
+.tab{padding:8px 16px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:600;background:#1e1e2e;color:#9ca3af;transition:all .2s;white-space:nowrap}
+.tab.active{background:#10b981;color:#fff}
+.content{max-width:900px;margin:16px auto;padding:0 16px 40px}
+.card{background:#13131f;border:1px solid #1e1e2e;border-radius:14px;padding:20px;margin-bottom:12px}
+.card h2{color:#10b981;font-size:18px;margin-bottom:12px}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.tool-item{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:10px;padding:10px;text-align:center;transition:all .2s}
+.tool-item:hover{border-color:#10b981;transform:translateY(-2px)}
+.tool-item .name{font-size:13px;font-weight:600;color:#e2e8f0}
+.tool-item .nameAr{font-size:11px;color:#6b7280;margin-top:2px}
+.tool-item .cat{font-size:9px;color:#10b981;margin-top:4px;background:#10b98120;padding:2px 6px;border-radius:6px;display:inline-block}
+.industry{display:flex;align-items:center;gap:16px;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:12px;padding:16px;margin-bottom:10px;transition:all .2s}
+.industry:hover{border-color:#8b5cf6}
+.industry .icon{font-size:36px}
+.industry .info h3{font-size:15px;color:#fff}
+.industry .info p{font-size:12px;color:#6b7280;margin-top:4px}
+.industry .badge{margin-right:auto;background:#8b5cf620;color:#a78bfa;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:600}
+.api-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#1a1a2e;border-radius:10px;margin-bottom:6px;border:1px solid #2a2a3e}
+.api-row code{font-size:12px;color:#34d399;background:#10b98115;padding:2px 8px;border-radius:6px;direction:ltr}
+.api-row span{font-size:13px;color:#9ca3af}
+.status-ok{color:#10b981;font-weight:700;font-size:20px}
+.loading{text-align:center;padding:40px;color:#6b7280}
+.scenario{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:10px;padding:12px;margin-bottom:8px}
+.scenario .s-name{font-weight:600;color:#e2e8f0;font-size:14px}
+.scenario .s-desc{font-size:12px;color:#6b7280;margin-top:4px}
+.scenario .s-tools{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.scenario .s-tool{font-size:10px;background:#06b6d420;color:#67e8f9;padding:2px 6px;border-radius:4px}
+.scenario .s-save{font-size:11px;color:#fbbf24;margin-top:6px}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}.tool-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚡ AutoFlow v5.0</h1>
+  <p>أذكى نظام أتمتة عربي — 50 أداة، 6 صناعات، صفر أخطاء</p>
+  <div class="stats" id="stats">
+    <div class="stat"><div class="num" id="st-tools">-</div><div class="lbl">أداة</div></div>
+    <div class="stat"><div class="num" id="st-ind">6</div><div class="lbl">صناعة</div></div>
+    <div class="stat"><div class="num">36</div><div class="lbl">سيناريو جاهز</div></div>
+    <div class="stat"><div class="num" id="st-status">...</div><div class="lbl">الحالة</div></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('tools')">🔧 الأدوات</button>
+  <button class="tab" onclick="showTab('industries')">🏭 الصناعات</button>
+  <button class="tab" onclick="showTab('api')">📡 API</button>
+</div>
+
+<div class="content">
+  <div id="tools-tab"></div>
+  <div id="industries-tab" style="display:none"></div>
+  <div id="api-tab" style="display:none"></div>
+</div>
+
+<script>
+const API = '';
+
+async function init() {
+  // Health check
+  try {
+    const h = await fetch(API+'/api/health').then(r=>r.json());
+    document.getElementById('st-status').textContent = '🟢';
+    document.getElementById('st-status').style.color = '#10b981';
+    document.getElementById('st-tools').textContent = h.tools;
+  } catch(e) {
+    document.getElementById('st-status').textContent = '🔴';
+  }
+
+  // Load tools
+  try {
+    const d = await fetch(API+'/api/tools').then(r=>r.json());
+    const cats = {};
+    d.tools.forEach(t => {
+      if(!cats[t.category]) cats[t.category] = [];
+      cats[t.category].push(t);
+    });
+    
+    const catNames = {
+      CORE:'⚙️ أساسية',COMMUNICATION:'💬 تواصل',PRODUCTIVITY:'📋 إنتاجية',
+      SALES_AND_CRM:'📊 مبيعات',PAYMENT_PROCESSING:'💳 مالية',ACCOUNTING:'🧾 محاسبة',
+      MARKETING:'📢 تسويق',COMMERCE:'🛍️ تجارة',ARTIFICIAL_INTELLIGENCE:'🤖 ذكاء اصطناعي',
+      CUSTOMER_SUPPORT:'🎧 دعم',CONTENT_AND_FILES:'📁 ملفات',DEVELOPER_TOOLS:'🔧 مطورين'
+    };
+
+    let html = '';
+    for(const [cat, tools] of Object.entries(cats)) {
+      html += `<div class="card"><h2>${catNames[cat]||cat} (${tools.length})</h2><div class="tool-grid">`;
+      tools.forEach(t => {
+        html += `<div class="tool-item"><div class="name">${t.displayName}</div><div class="nameAr">${t.displayNameAr}</div></div>`;
+      });
+      html += '</div></div>';
+    }
+    document.getElementById('tools-tab').innerHTML = html;
+  } catch(e) {
+    document.getElementById('tools-tab').innerHTML = '<div class="loading">خطأ في تحميل الأدوات</div>';
+  }
+
+  // Load industries
+  try {
+    const d = await fetch(API+'/api/industries').then(r=>r.json());
+    const icons = {clinic:'🏥',ecommerce:'🛍️',restaurant:'🍽️',consulting:'💼',construction:'🏗️',training:'🎓'};
+    let html = '';
+    for(const ind of d.industries) {
+      html += `<div class="industry" onclick="loadIndustry('${ind.id}')">
+        <div class="icon">${icons[ind.id]||'📦'}</div>
+        <div class="info"><h3>${ind.name}</h3><p>${ind.description}</p></div>
+        <div class="badge">${ind.scenarios} سيناريو</div>
+      </div>`;
+    }
+    html += '<div id="industry-detail"></div>';
+    document.getElementById('industries-tab').innerHTML = html;
+  } catch(e) {}
+
+  // API docs
+  document.getElementById('api-tab').innerHTML = `
+    <div class="card">
+      <h2>📡 API Endpoints</h2>
+      <div class="api-row"><span>فحص الصحة</span><code>GET /api/health</code></div>
+      <div class="api-row"><span>كل الأدوات</span><code>GET /api/tools</code></div>
+      <div class="api-row"><span>تفاصيل أداة</span><code>GET /api/tools/:id</code></div>
+      <div class="api-row"><span>كل الصناعات</span><code>GET /api/industries</code></div>
+      <div class="api-row"><span>سيناريوهات صناعة</span><code>GET /api/industries/:id</code></div>
+      <div class="api-row"><span>فحص Flow</span><code>POST /api/validate</code></div>
+    </div>
+  `;
+}
+
+async function loadIndustry(id) {
+  try {
+    const d = await fetch(API+'/api/industries/'+id).then(r=>r.json());
+    let html = `<div class="card" style="margin-top:16px"><h2>${d._displayName} — السيناريوهات</h2>`;
+    d.scenarios.forEach(s => {
+      const tools = s.actions.map(a => a.tool);
+      html += `<div class="scenario">
+        <div class="s-name">${s.name}</div>
+        <div class="s-desc">${s.description}</div>
+        <div class="s-tools">${tools.map(t=>`<span class="s-tool">${t}</span>`).join('')}</div>
+        <div class="s-save">⏱️ توفير: ${s.timeSaved}</div>
+      </div>`;
+    });
+    html += '</div>';
+    document.getElementById('industry-detail').innerHTML = html;
+  } catch(e) {}
+}
+
+function showTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('[id$="-tab"]').forEach(t => t.style.display = 'none');
+  event.target.classList.add('active');
+  document.getElementById(name+'-tab').style.display = 'block';
+}
+
+init();
+</script>
+</body>
+</html>
