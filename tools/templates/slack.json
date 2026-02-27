@@ -1,0 +1,30 @@
+{
+  "_autoflow": { "version": "5.0", "source": "manual-verified", "toolId": "slack", "toolNameAr": "سلاك" },
+  "piece": { "packageType": "REGISTRY", "pieceType": "OFFICIAL", "pieceName": "@activepieces/piece-slack", "pieceVersion": "~0.12.2" },
+  "auth": { "type": "OAUTH2", "description": "يحتاج ربط workspace Slack" },
+  "triggers": {
+    "new_message": {
+      "displayName": "New Message", "description": "يشتغل لما تجي رسالة جديدة في قناة", "type": "WEBHOOK",
+      "props": { "channel": { "displayName": "Channel", "type": "DROPDOWN", "required": true } },
+      "_copyPaste": { "type": "PIECE_TRIGGER", "settings": { "pieceName": "@activepieces/piece-slack", "pieceVersion": "~0.12.2", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "triggerName": "new_message", "input": { "channel": "" }, "inputUiInfo": {} }, "valid": false, "name": "trigger" }
+    }
+  },
+  "actions": {
+    "send_channel_message": {
+      "displayName": "Send Message to Channel", "description": "يرسل رسالة في قناة", "requireAuth": true,
+      "props": {
+        "channel": { "displayName": "Channel", "type": "DROPDOWN", "required": true },
+        "text": { "displayName": "Message Text", "type": "LONG_TEXT", "required": true }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-slack", "pieceVersion": "~0.12.2", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "send_channel_message", "input": { "channel": "", "text": "" }, "inputUiInfo": {} }, "valid": false, "name": "send_channel_message" }
+    },
+    "send_direct_message": {
+      "displayName": "Send Direct Message", "description": "يرسل رسالة خاصة", "requireAuth": true,
+      "props": {
+        "userId": { "displayName": "User", "type": "DROPDOWN", "required": true },
+        "text": { "displayName": "Message Text", "type": "LONG_TEXT", "required": true }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-slack", "pieceVersion": "~0.12.2", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "send_direct_message", "input": { "userId": "", "text": "" }, "inputUiInfo": {} }, "valid": false, "name": "send_direct_message" }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "wordpress",
+    "toolNameAr": "ووردبرس"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-wordpress",
+    "pieceVersion": "~0.4.0"
+  },
+  "auth": {
+    "type": "CUSTOM_AUTH"
+  },
+  "triggers": {
+    "new_post": {
+      "displayName": "New Post",
+      "type": "POLLING",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE_TRIGGER",
+        "settings": {
+          "pieceName": "@activepieces/piece-wordpress",
+          "pieceVersion": "~0.4.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "triggerName": "new_post",
+          "input": {},
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "trigger"
+      }
+    }
+  },
+  "actions": {
+    "create_post": {
+      "displayName": "Create Post",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-wordpress",
+          "pieceVersion": "~0.4.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "create_post",
+          "input": {
+            "title": "",
+            "content": "",
+            "status": "draft"
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

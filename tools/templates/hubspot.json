@@ -1,0 +1,38 @@
+{
+  "_autoflow": { "version": "5.0", "source": "manual-verified", "toolId": "hubspot", "toolNameAr": "هب سبوت" },
+  "piece": { "packageType": "REGISTRY", "pieceType": "OFFICIAL", "pieceName": "@activepieces/piece-hubspot", "pieceVersion": "~0.8.3" },
+  "auth": { "type": "OAUTH2", "description": "يحتاج ربط حساب HubSpot" },
+  "triggers": {
+    "new_contact": { "displayName": "New Contact", "description": "جهة اتصال جديدة", "type": "POLLING", "props": {},
+      "_copyPaste": { "type": "PIECE_TRIGGER", "settings": { "pieceName": "@activepieces/piece-hubspot", "pieceVersion": "~0.8.3", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "triggerName": "new_contact", "input": {}, "inputUiInfo": {} }, "valid": false, "name": "trigger" } },
+    "new_deal": { "displayName": "New Deal", "description": "صفقة جديدة", "type": "POLLING", "props": {},
+      "_copyPaste": { "type": "PIECE_TRIGGER", "settings": { "pieceName": "@activepieces/piece-hubspot", "pieceVersion": "~0.8.3", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "triggerName": "new_deal", "input": {}, "inputUiInfo": {} }, "valid": false, "name": "trigger" } },
+    "new_ticket": { "displayName": "New Ticket", "description": "تذكرة دعم جديدة", "type": "POLLING", "props": {},
+      "_copyPaste": { "type": "PIECE_TRIGGER", "settings": { "pieceName": "@activepieces/piece-hubspot", "pieceVersion": "~0.8.3", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "triggerName": "new_ticket", "input": {}, "inputUiInfo": {} }, "valid": false, "name": "trigger" } }
+  },
+  "actions": {
+    "create_contact": { "displayName": "Create Contact", "description": "إنشاء جهة اتصال", "requireAuth": true,
+      "props": {
+        "email": { "displayName": "Email", "type": "SHORT_TEXT", "required": true },
+        "firstname": { "displayName": "First Name", "type": "SHORT_TEXT", "required": false },
+        "lastname": { "displayName": "Last Name", "type": "SHORT_TEXT", "required": false },
+        "phone": { "displayName": "Phone", "type": "SHORT_TEXT", "required": false },
+        "company": { "displayName": "Company", "type": "SHORT_TEXT", "required": false }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-hubspot", "pieceVersion": "~0.8.3", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "create_contact", "input": { "email": "", "firstname": "", "lastname": "", "phone": "" }, "inputUiInfo": {} }, "valid": false, "name": "create_contact" } },
+    "create_deal": { "displayName": "Create Deal", "description": "إنشاء صفقة", "requireAuth": true,
+      "props": {
+        "dealname": { "displayName": "Deal Name", "type": "SHORT_TEXT", "required": true },
+        "pipeline": { "displayName": "Pipeline", "type": "DROPDOWN", "required": true },
+        "dealstage": { "displayName": "Stage", "type": "DROPDOWN", "required": true },
+        "amount": { "displayName": "Amount", "type": "NUMBER", "required": false }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-hubspot", "pieceVersion": "~0.8.3", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "create_deal", "input": { "dealname": "", "pipeline": "", "dealstage": "", "amount": "" }, "inputUiInfo": {} }, "valid": false, "name": "create_deal" } },
+    "create_note": { "displayName": "Create Note", "description": "إضافة ملاحظة", "requireAuth": true,
+      "props": {
+        "body": { "displayName": "Note Body", "type": "LONG_TEXT", "required": true },
+        "contactId": { "displayName": "Contact ID", "type": "SHORT_TEXT", "required": false }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-hubspot", "pieceVersion": "~0.8.3", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "create_note", "input": { "body": "", "contactId": "" }, "inputUiInfo": {} }, "valid": false, "name": "create_note" } }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "_description": "هيكل Flow الأساسي — كل flow جديد يبدأ من هنا",
+  "_version": "5.0",
+  "formatVersion": "4",
+  "created": "{{TIMESTAMP}}",
+  "updated": "{{TIMESTAMP}}",
+  "name": "{{FLOW_NAME_AR}}",
+  "description": "{{FLOW_DESCRIPTION_AR}}",
+  "tags": [],
+  "pieces": [],
+  "template": {
+    "displayName": "{{FLOW_NAME_AR}}",
+    "trigger": {
+      "type": "PIECE_TRIGGER",
+      "settings": {
+        "pieceName": "{{TRIGGER_PIECE_NAME}}",
+        "pieceVersion": "{{TRIGGER_PIECE_VERSION}}",
+        "pieceType": "OFFICIAL",
+        "packageType": "REGISTRY",
+        "triggerName": "{{TRIGGER_NAME}}",
+        "input": {},
+        "inputUiInfo": {}
+      },
+      "valid": false,
+      "name": "trigger",
+      "displayName": "{{TRIGGER_DISPLAY_NAME_AR}}",
+      "nextAction": null
+    }
+  }
+}

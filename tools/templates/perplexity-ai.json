@@ -1,0 +1,41 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "perplexity-ai",
+    "toolNameAr": "بربلكستي"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-perplexity-ai",
+    "pieceVersion": "~0.2.0"
+  },
+  "auth": {
+    "type": "SECRET_TEXT"
+  },
+  "triggers": {},
+  "actions": {
+    "ask": {
+      "displayName": "Ask Perplexity",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-perplexity-ai",
+          "pieceVersion": "~0.2.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "ask",
+          "input": {
+            "model": "",
+            "prompt": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

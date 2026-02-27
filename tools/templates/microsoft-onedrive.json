@@ -1,0 +1,64 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "microsoft-onedrive",
+    "toolNameAr": "ون درايف"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-microsoft-onedrive",
+    "pieceVersion": "~0.3.0"
+  },
+  "auth": {
+    "type": "OAUTH2"
+  },
+  "triggers": {
+    "new_file": {
+      "displayName": "New File",
+      "type": "POLLING",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE_TRIGGER",
+        "settings": {
+          "pieceName": "@activepieces/piece-microsoft-onedrive",
+          "pieceVersion": "~0.3.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "triggerName": "new_file",
+          "input": {
+            "folderId": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "trigger"
+      }
+    }
+  },
+  "actions": {
+    "upload_file": {
+      "displayName": "Upload File",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-microsoft-onedrive",
+          "pieceVersion": "~0.3.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "upload_file",
+          "input": {
+            "fileName": "",
+            "file": "",
+            "folderId": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

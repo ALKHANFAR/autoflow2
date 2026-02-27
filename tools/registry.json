@@ -1,0 +1,508 @@
+{
+  "_version": "5.0",
+  "_generated": "2026-02-27",
+  "_description": "فهرس أدوات AutoFlow — مسحوب من Activepieces API الرسمي",
+  "_total": 50,
+  "tools": [
+    {
+      "id": "schedule",
+      "package": "@activepieces/piece-schedule",
+      "displayName": "Schedule",
+      "displayNameAr": "جدولة",
+      "category": "CORE",
+      "auth": "NONE",
+      "templateFile": "templates/schedule.json",
+      "priority": 1
+    },
+    {
+      "id": "webhook",
+      "package": "@activepieces/piece-webhook",
+      "displayName": "Webhook",
+      "displayNameAr": "ويب هوك",
+      "category": "CORE",
+      "auth": "NONE",
+      "templateFile": "templates/webhook.json",
+      "priority": 1
+    },
+    {
+      "id": "http",
+      "package": "@activepieces/piece-http",
+      "displayName": "HTTP",
+      "displayNameAr": "طلب HTTP",
+      "category": "CORE",
+      "auth": "NONE",
+      "templateFile": "templates/http.json",
+      "priority": 1
+    },
+    {
+      "id": "ai",
+      "package": "@activepieces/piece-ai",
+      "displayName": "AI",
+      "displayNameAr": "ذكاء اصطناعي",
+      "category": "ARTIFICIAL_INTELLIGENCE",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/ai.json",
+      "priority": 1
+    },
+    {
+      "id": "storage",
+      "package": "@activepieces/piece-store",
+      "displayName": "Storage",
+      "displayNameAr": "تخزين",
+      "category": "CORE",
+      "auth": "NONE",
+      "templateFile": "templates/storage.json",
+      "priority": 1
+    },
+    {
+      "id": "gmail",
+      "package": "@activepieces/piece-gmail",
+      "displayName": "Gmail",
+      "displayNameAr": "بريد جيميل",
+      "category": "COMMUNICATION",
+      "auth": "OAUTH2",
+      "templateFile": "templates/gmail.json",
+      "priority": 1
+    },
+    {
+      "id": "slack",
+      "package": "@activepieces/piece-slack",
+      "displayName": "Slack",
+      "displayNameAr": "سلاك",
+      "category": "COMMUNICATION",
+      "auth": "OAUTH2",
+      "templateFile": "templates/slack.json",
+      "priority": 1
+    },
+    {
+      "id": "whatsapp",
+      "package": "@activepieces/piece-whatsapp",
+      "displayName": "WhatsApp",
+      "displayNameAr": "واتساب",
+      "category": "COMMUNICATION",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/whatsapp.json",
+      "priority": 1
+    },
+    {
+      "id": "telegram-bot",
+      "package": "@activepieces/piece-telegram-bot",
+      "displayName": "Telegram Bot",
+      "displayNameAr": "بوت تلقرام",
+      "category": "COMMUNICATION",
+      "auth": "SECRET_TEXT",
+      "templateFile": "templates/telegram-bot.json",
+      "priority": 1
+    },
+    {
+      "id": "google-sheets",
+      "package": "@activepieces/piece-google-sheets",
+      "displayName": "Google Sheets",
+      "displayNameAr": "جداول قوقل",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/google-sheets.json",
+      "priority": 1
+    },
+    {
+      "id": "hubspot",
+      "package": "@activepieces/piece-hubspot",
+      "displayName": "HubSpot",
+      "displayNameAr": "هب سبوت",
+      "category": "SALES_AND_CRM",
+      "auth": "OAUTH2",
+      "templateFile": "templates/hubspot.json",
+      "priority": 2
+    },
+    {
+      "id": "microsoft-teams",
+      "package": "@activepieces/piece-microsoft-teams",
+      "displayName": "Microsoft Teams",
+      "displayNameAr": "مايكروسوفت تيمز",
+      "category": "COMMUNICATION",
+      "auth": "OAUTH2",
+      "templateFile": "templates/microsoft-teams.json",
+      "priority": 2
+    },
+    {
+      "id": "salesforce",
+      "package": "@activepieces/piece-salesforce",
+      "displayName": "Salesforce",
+      "displayNameAr": "سيلزفورس",
+      "category": "SALES_AND_CRM",
+      "auth": "OAUTH2",
+      "templateFile": "templates/salesforce.json",
+      "priority": 2
+    },
+    {
+      "id": "pipedrive",
+      "package": "@activepieces/piece-pipedrive",
+      "displayName": "Pipedrive",
+      "displayNameAr": "بايب درايف",
+      "category": "SALES_AND_CRM",
+      "auth": "OAUTH2",
+      "templateFile": "templates/pipedrive.json",
+      "priority": 2
+    },
+    {
+      "id": "airtable",
+      "package": "@activepieces/piece-airtable",
+      "displayName": "Airtable",
+      "displayNameAr": "إير تيبل",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/airtable.json",
+      "priority": 2
+    },
+    {
+      "id": "google-calendar",
+      "package": "@activepieces/piece-google-calendar",
+      "displayName": "Google Calendar",
+      "displayNameAr": "تقويم قوقل",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/google-calendar.json",
+      "priority": 1
+    },
+    {
+      "id": "notion",
+      "package": "@activepieces/piece-notion",
+      "displayName": "Notion",
+      "displayNameAr": "نوشن",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/notion.json",
+      "priority": 2
+    },
+    {
+      "id": "trello",
+      "package": "@activepieces/piece-trello",
+      "displayName": "Trello",
+      "displayNameAr": "تريلو",
+      "category": "PRODUCTIVITY",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/trello.json",
+      "priority": 2
+    },
+    {
+      "id": "asana",
+      "package": "@activepieces/piece-asana",
+      "displayName": "Asana",
+      "displayNameAr": "أسانا",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/asana.json",
+      "priority": 2
+    },
+    {
+      "id": "monday",
+      "package": "@activepieces/piece-monday",
+      "displayName": "Monday.com",
+      "displayNameAr": "مانداي",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/monday.json",
+      "priority": 2
+    },
+    {
+      "id": "jira-cloud",
+      "package": "@activepieces/piece-jira-cloud",
+      "displayName": "Jira Cloud",
+      "displayNameAr": "جيرا",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/jira-cloud.json",
+      "priority": 3
+    },
+    {
+      "id": "stripe",
+      "package": "@activepieces/piece-stripe",
+      "displayName": "Stripe",
+      "displayNameAr": "سترايب",
+      "category": "PAYMENT_PROCESSING",
+      "auth": "SECRET_TEXT",
+      "templateFile": "templates/stripe.json",
+      "priority": 2
+    },
+    {
+      "id": "quickbooks-online",
+      "package": "@activepieces/piece-quickbooks",
+      "displayName": "QuickBooks Online",
+      "displayNameAr": "كويك بوكس",
+      "category": "ACCOUNTING",
+      "auth": "OAUTH2",
+      "templateFile": "templates/quickbooks-online.json",
+      "priority": 2
+    },
+    {
+      "id": "xero",
+      "package": "@activepieces/piece-xero",
+      "displayName": "Xero",
+      "displayNameAr": "زيرو",
+      "category": "ACCOUNTING",
+      "auth": "OAUTH2",
+      "templateFile": "templates/xero.json",
+      "priority": 2
+    },
+    {
+      "id": "mailchimp",
+      "package": "@activepieces/piece-mailchimp",
+      "displayName": "Mailchimp",
+      "displayNameAr": "ميل تشيمب",
+      "category": "MARKETING",
+      "auth": "OAUTH2",
+      "templateFile": "templates/mailchimp.json",
+      "priority": 2
+    },
+    {
+      "id": "sendgrid",
+      "package": "@activepieces/piece-sendgrid",
+      "displayName": "SendGrid",
+      "displayNameAr": "سند قريد",
+      "category": "MARKETING",
+      "auth": "SECRET_TEXT",
+      "templateFile": "templates/sendgrid.json",
+      "priority": 2
+    },
+    {
+      "id": "openai",
+      "package": "@activepieces/piece-openai",
+      "displayName": "OpenAI",
+      "displayNameAr": "أوبن إيه آي",
+      "category": "ARTIFICIAL_INTELLIGENCE",
+      "auth": "SECRET_TEXT",
+      "templateFile": "templates/openai.json",
+      "priority": 2
+    },
+    {
+      "id": "zendesk",
+      "package": "@activepieces/piece-zendesk",
+      "displayName": "Zendesk",
+      "displayNameAr": "زن ديسك",
+      "category": "CUSTOMER_SUPPORT",
+      "auth": "OAUTH2",
+      "templateFile": "templates/zendesk.json",
+      "priority": 2
+    },
+    {
+      "id": "square",
+      "package": "@activepieces/piece-square",
+      "displayName": "Square",
+      "displayNameAr": "سكوير",
+      "category": "PAYMENT_PROCESSING",
+      "auth": "OAUTH2",
+      "templateFile": "templates/square.json",
+      "priority": 3
+    },
+    {
+      "id": "brevo",
+      "package": "@activepieces/piece-brevo",
+      "displayName": "Brevo (Sendinblue)",
+      "displayNameAr": "بريفو",
+      "category": "MARKETING",
+      "auth": "SECRET_TEXT",
+      "templateFile": "templates/brevo.json",
+      "priority": 3
+    },
+    {
+      "id": "twitter",
+      "package": "@activepieces/piece-twitter",
+      "displayName": "X (Twitter)",
+      "displayNameAr": "تويتر / إكس",
+      "category": "MARKETING",
+      "auth": "OAUTH2",
+      "templateFile": "templates/twitter.json",
+      "priority": 3
+    },
+    {
+      "id": "shopify",
+      "package": "@activepieces/piece-shopify",
+      "displayName": "Shopify",
+      "displayNameAr": "شوبيفاي",
+      "category": "COMMERCE",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/shopify.json",
+      "priority": 2
+    },
+    {
+      "id": "woocommerce",
+      "package": "@activepieces/piece-woocommerce",
+      "displayName": "WooCommerce",
+      "displayNameAr": "وو كوميرس",
+      "category": "COMMERCE",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/woocommerce.json",
+      "priority": 3
+    },
+    {
+      "id": "google-drive",
+      "package": "@activepieces/piece-google-drive",
+      "displayName": "Google Drive",
+      "displayNameAr": "قوقل درايف",
+      "category": "CONTENT_AND_FILES",
+      "auth": "OAUTH2",
+      "templateFile": "templates/google-drive.json",
+      "priority": 2
+    },
+    {
+      "id": "microsoft-onedrive",
+      "package": "@activepieces/piece-microsoft-onedrive",
+      "displayName": "Microsoft OneDrive",
+      "displayNameAr": "ون درايف",
+      "category": "CONTENT_AND_FILES",
+      "auth": "OAUTH2",
+      "templateFile": "templates/microsoft-onedrive.json",
+      "priority": 3
+    },
+    {
+      "id": "microsoft-excel-365",
+      "package": "@activepieces/piece-microsoft-excel-365",
+      "displayName": "Microsoft Excel 365",
+      "displayNameAr": "إكسل 365",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/microsoft-excel-365.json",
+      "priority": 3
+    },
+    {
+      "id": "perplexity-ai",
+      "package": "@activepieces/piece-perplexity-ai",
+      "displayName": "Perplexity AI",
+      "displayNameAr": "بربلكستي",
+      "category": "ARTIFICIAL_INTELLIGENCE",
+      "auth": "SECRET_TEXT",
+      "templateFile": "templates/perplexity-ai.json",
+      "priority": 3
+    },
+    {
+      "id": "postgres",
+      "package": "@activepieces/piece-postgres",
+      "displayName": "PostgreSQL",
+      "displayNameAr": "بوستقرس",
+      "category": "DEVELOPER_TOOLS",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/postgres.json",
+      "priority": 3
+    },
+    {
+      "id": "mysql",
+      "package": "@activepieces/piece-mysql",
+      "displayName": "MySQL",
+      "displayNameAr": "ماي إس كيو إل",
+      "category": "DEVELOPER_TOOLS",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/mysql.json",
+      "priority": 3
+    },
+    {
+      "id": "mongodb",
+      "package": "@activepieces/piece-mongodb",
+      "displayName": "MongoDB",
+      "displayNameAr": "مونقو",
+      "category": "DEVELOPER_TOOLS",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/mongodb.json",
+      "priority": 3
+    },
+    {
+      "id": "supabase",
+      "package": "@activepieces/piece-supabase",
+      "displayName": "Supabase",
+      "displayNameAr": "سوبابيس",
+      "category": "DEVELOPER_TOOLS",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/supabase.json",
+      "priority": 3
+    },
+    {
+      "id": "intercom",
+      "package": "@activepieces/piece-intercom",
+      "displayName": "Intercom",
+      "displayNameAr": "إنتركوم",
+      "category": "CUSTOMER_SUPPORT",
+      "auth": "OAUTH2",
+      "templateFile": "templates/intercom.json",
+      "priority": 3
+    },
+    {
+      "id": "calendly",
+      "package": "@activepieces/piece-calendly",
+      "displayName": "Calendly",
+      "displayNameAr": "كالندلي",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/calendly.json",
+      "priority": 2
+    },
+    {
+      "id": "wordpress",
+      "package": "@activepieces/piece-wordpress",
+      "displayName": "WordPress",
+      "displayNameAr": "ووردبرس",
+      "category": "CONTENT_AND_FILES",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/wordpress.json",
+      "priority": 3
+    },
+    {
+      "id": "rss",
+      "package": "@activepieces/piece-rss",
+      "displayName": "RSS Feed",
+      "displayNameAr": "RSS خلاصات",
+      "category": "CONTENT_AND_FILES",
+      "auth": "NONE",
+      "templateFile": "templates/rss.json",
+      "priority": 3
+    },
+    {
+      "id": "smtp",
+      "package": "@activepieces/piece-smtp",
+      "displayName": "SMTP Email",
+      "displayNameAr": "بريد SMTP",
+      "category": "COMMUNICATION",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/smtp.json",
+      "priority": 2
+    },
+    {
+      "id": "sub-flows",
+      "package": "@activepieces/piece-subflows",
+      "displayName": "Sub Flows",
+      "displayNameAr": "تدفقات فرعية",
+      "category": "CORE",
+      "auth": "NONE",
+      "templateFile": "templates/sub-flows.json",
+      "priority": 2
+    },
+    {
+      "id": "queue",
+      "package": "@activepieces/piece-queue",
+      "displayName": "Queue",
+      "displayNameAr": "طابور مهام",
+      "category": "CORE",
+      "auth": "NONE",
+      "templateFile": "templates/queue.json",
+      "priority": 3
+    },
+    {
+      "id": "sftp",
+      "package": "@activepieces/piece-sftp",
+      "displayName": "FTP/SFTP",
+      "displayNameAr": "نقل ملفات",
+      "category": "CONTENT_AND_FILES",
+      "auth": "CUSTOM_AUTH",
+      "templateFile": "templates/sftp.json",
+      "priority": 3
+    },
+    {
+      "id": "microsoft-outlook-calendar",
+      "package": "@activepieces/piece-microsoft-outlook-calendar",
+      "displayName": "Outlook Calendar",
+      "displayNameAr": "تقويم أوتلوك",
+      "category": "PRODUCTIVITY",
+      "auth": "OAUTH2",
+      "templateFile": "templates/microsoft-outlook-calendar.json",
+      "priority": 3
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "twitter",
+    "toolNameAr": "تويتر / إكس"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-twitter",
+    "pieceVersion": "~0.3.0"
+  },
+  "auth": {
+    "type": "OAUTH2"
+  },
+  "triggers": {},
+  "actions": {
+    "create_tweet": {
+      "displayName": "Create Tweet",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-twitter",
+          "pieceVersion": "~0.3.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "create_tweet",
+          "input": {
+            "text": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

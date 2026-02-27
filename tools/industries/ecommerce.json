@@ -1,0 +1,93 @@
+{
+  "_industry": "ecommerce",
+  "_displayName": "متجر إلكتروني",
+  "_description": "أتمتات للتجارة الإلكترونية — طلبات، شحن، تقييمات، استرجاع",
+  "_version": "5.0",
+  "scenarios": [
+    {
+      "id": "ecom-01",
+      "name": "تأكيد طلب جديد",
+      "nameEn": "New Order Confirmation",
+      "description": "طلب جديد → تأكيد واتساب + إيميل + تسجيل في الجدول",
+      "trigger": { "tool": "webhook", "event": "new_order" },
+      "actions": [
+        { "tool": "google-sheets", "action": "insert_row", "desc": "تسجيل الطلب في جدول الطلبات" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "تأكيد فوري للعميل برقم الطلب" },
+        { "tool": "gmail", "action": "send_email", "desc": "إيميل تأكيد رسمي مع التفاصيل" },
+        { "tool": "slack", "action": "send_channel_message", "desc": "إشعار فريق العمل بطلب جديد" }
+      ],
+      "timeSaved": "7 دقائق لكل طلب",
+      "priority": "عالي"
+    },
+    {
+      "id": "ecom-02",
+      "name": "تحديث حالة الشحن",
+      "nameEn": "Shipping Status Update",
+      "description": "لما الطلب يتشحن → إشعار العميل برقم التتبع",
+      "trigger": { "tool": "webhook", "event": "order_shipped" },
+      "actions": [
+        { "tool": "google-sheets", "action": "update_row", "desc": "تحديث حالة الطلب في الجدول" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "رسالة برقم التتبع ورابط المتابعة" },
+        { "tool": "gmail", "action": "send_email", "desc": "إيميل تفصيلي عن الشحن" }
+      ],
+      "timeSaved": "5 دقائق لكل شحنة",
+      "priority": "عالي"
+    },
+    {
+      "id": "ecom-03",
+      "name": "طلب تقييم بعد التوصيل",
+      "nameEn": "Post-Delivery Review Request",
+      "description": "بعد 3 أيام من التوصيل → رسالة تطلب تقييم المنتج",
+      "trigger": { "tool": "schedule", "event": "cron_expression", "config": "0 11 * * *" },
+      "actions": [
+        { "tool": "google-sheets", "action": "read_rows", "desc": "طلبات تم توصيلها قبل 3 أيام" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "رسالة ودية تطلب تقييم + رابط" }
+      ],
+      "timeSaved": "20 دقيقة يومياً",
+      "priority": "متوسط"
+    },
+    {
+      "id": "ecom-04",
+      "name": "تنبيه مخزون منخفض",
+      "nameEn": "Low Stock Alert",
+      "description": "كل صباح → فحص المخزون وتنبيه لو أقل من الحد",
+      "trigger": { "tool": "schedule", "event": "cron_expression", "config": "0 7 * * *" },
+      "actions": [
+        { "tool": "google-sheets", "action": "read_rows", "desc": "قراءة جدول المخزون" },
+        { "tool": "ai", "action": "askAi", "desc": "تحليل المنتجات اللي قربت تخلص" },
+        { "tool": "slack", "action": "send_channel_message", "desc": "تنبيه المشتريات" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "إشعار المدير" }
+      ],
+      "timeSaved": "30 دقيقة يومياً",
+      "priority": "عالي"
+    },
+    {
+      "id": "ecom-05",
+      "name": "استرجاع السلة المتروكة",
+      "nameEn": "Abandoned Cart Recovery",
+      "description": "بعد ساعة من ترك السلة → رسالة تذكير بالمنتجات",
+      "trigger": { "tool": "webhook", "event": "cart_abandoned" },
+      "actions": [
+        { "tool": "ai", "action": "askAi", "desc": "صياغة رسالة مقنعة حسب المنتجات" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "تذكير بالسلة مع كود خصم" },
+        { "tool": "gmail", "action": "send_email", "desc": "إيميل تذكير مفصل" }
+      ],
+      "timeSaved": "زيادة مبيعات 15%",
+      "priority": "عالي"
+    },
+    {
+      "id": "ecom-06",
+      "name": "تقرير مبيعات يومي",
+      "nameEn": "Daily Sales Report",
+      "description": "كل مساء → تقرير بالمبيعات والإيرادات",
+      "trigger": { "tool": "schedule", "event": "cron_expression", "config": "0 20 * * *" },
+      "actions": [
+        { "tool": "google-sheets", "action": "read_rows", "desc": "جمع بيانات مبيعات اليوم" },
+        { "tool": "ai", "action": "askAi", "desc": "تحليل وتلخيص الأداء" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "تقرير مختصر للمدير" }
+      ],
+      "timeSaved": "25 دقيقة يومياً",
+      "priority": "متوسط"
+    }
+  ]
+}

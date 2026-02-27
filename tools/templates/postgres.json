@@ -1,0 +1,40 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "postgres",
+    "toolNameAr": "بوستقرس"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-postgres",
+    "pieceVersion": "~0.4.0"
+  },
+  "auth": {
+    "type": "CUSTOM_AUTH"
+  },
+  "triggers": {},
+  "actions": {
+    "run_query": {
+      "displayName": "Run Query",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-postgres",
+          "pieceVersion": "~0.4.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "run_query",
+          "input": {
+            "query": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "sub-flows",
+    "toolNameAr": "تدفقات فرعية"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-subflows",
+    "pieceVersion": "~0.1.0"
+  },
+  "auth": {
+    "type": "NONE"
+  },
+  "triggers": {},
+  "actions": {
+    "call_flow": {
+      "displayName": "Call Flow",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-subflows",
+          "pieceVersion": "~0.1.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "call_flow",
+          "input": {
+            "flowId": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

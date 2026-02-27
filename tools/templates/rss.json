@@ -1,0 +1,41 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "rss",
+    "toolNameAr": "خلاصات RSS"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-rss",
+    "pieceVersion": "~0.3.0"
+  },
+  "auth": {
+    "type": "NONE"
+  },
+  "triggers": {
+    "new_item": {
+      "displayName": "New RSS Item",
+      "type": "POLLING",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE_TRIGGER",
+        "settings": {
+          "pieceName": "@activepieces/piece-rss",
+          "pieceVersion": "~0.3.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "triggerName": "new_item",
+          "input": {
+            "url": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "trigger"
+      }
+    }
+  },
+  "actions": {}
+}

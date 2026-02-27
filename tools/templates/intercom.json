@@ -1,0 +1,82 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "intercom",
+    "toolNameAr": "إنتركوم"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-intercom",
+    "pieceVersion": "~0.3.0"
+  },
+  "auth": {
+    "type": "OAUTH2"
+  },
+  "triggers": {
+    "new_conversation": {
+      "displayName": "New Conversation",
+      "type": "WEBHOOK",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE_TRIGGER",
+        "settings": {
+          "pieceName": "@activepieces/piece-intercom",
+          "pieceVersion": "~0.3.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "triggerName": "new_conversation",
+          "input": {},
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "trigger"
+      }
+    }
+  },
+  "actions": {
+    "send_message": {
+      "displayName": "Send Message",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-intercom",
+          "pieceVersion": "~0.3.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "send_message",
+          "input": {
+            "body": "",
+            "from": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    },
+    "create_contact": {
+      "displayName": "Create Contact",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-intercom",
+          "pieceVersion": "~0.3.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "create_contact",
+          "input": {
+            "email": "",
+            "name": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "microsoft-outlook-calendar",
+    "toolNameAr": "تقويم أوتلوك"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-microsoft-outlook-calendar",
+    "pieceVersion": "~0.2.0"
+  },
+  "auth": {
+    "type": "OAUTH2"
+  },
+  "triggers": {
+    "new_event": {
+      "displayName": "New Event",
+      "type": "POLLING",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE_TRIGGER",
+        "settings": {
+          "pieceName": "@activepieces/piece-microsoft-outlook-calendar",
+          "pieceVersion": "~0.2.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "triggerName": "new_event",
+          "input": {
+            "calendarId": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "trigger"
+      }
+    }
+  },
+  "actions": {
+    "create_event": {
+      "displayName": "Create Event",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-microsoft-outlook-calendar",
+          "pieceVersion": "~0.2.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "create_event",
+          "input": {
+            "subject": "",
+            "start": "",
+            "end": "",
+            "body": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}
