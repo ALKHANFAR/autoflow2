@@ -1,0 +1,44 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "smtp",
+    "toolNameAr": "بريد SMTP"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-smtp",
+    "pieceVersion": "~0.3.0"
+  },
+  "auth": {
+    "type": "CUSTOM_AUTH"
+  },
+  "triggers": {},
+  "actions": {
+    "send_email": {
+      "displayName": "Send Email",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-smtp",
+          "pieceVersion": "~0.3.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "send_email",
+          "input": {
+            "to": "",
+            "from": "",
+            "subject": "",
+            "body": "",
+            "html": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

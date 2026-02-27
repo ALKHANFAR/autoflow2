@@ -1,0 +1,83 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "zendesk",
+    "toolNameAr": "زن ديسك"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-zendesk",
+    "pieceVersion": "~0.2.0"
+  },
+  "auth": {
+    "type": "OAUTH2"
+  },
+  "triggers": {
+    "new_ticket": {
+      "displayName": "New Ticket",
+      "type": "POLLING",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE_TRIGGER",
+        "settings": {
+          "pieceName": "@activepieces/piece-zendesk",
+          "pieceVersion": "~0.2.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "triggerName": "new_ticket",
+          "input": {},
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "trigger"
+      }
+    }
+  },
+  "actions": {
+    "create_ticket": {
+      "displayName": "Create Ticket",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-zendesk",
+          "pieceVersion": "~0.2.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "create_ticket",
+          "input": {
+            "subject": "",
+            "description": "",
+            "priority": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    },
+    "add_comment": {
+      "displayName": "Add Comment",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-zendesk",
+          "pieceVersion": "~0.2.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "add_comment",
+          "input": {
+            "ticketId": "",
+            "body": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_autoflow": {
+    "version": "5.0",
+    "source": "activepieces-api",
+    "toolId": "queue",
+    "toolNameAr": "طابور مهام"
+  },
+  "piece": {
+    "packageType": "REGISTRY",
+    "pieceType": "OFFICIAL",
+    "pieceName": "@activepieces/piece-queue",
+    "pieceVersion": "~0.1.0"
+  },
+  "auth": {
+    "type": "NONE"
+  },
+  "triggers": {},
+  "actions": {
+    "add_to_queue": {
+      "displayName": "Add to Queue",
+      "props": {},
+      "_copyPaste": {
+        "type": "PIECE",
+        "settings": {
+          "pieceName": "@activepieces/piece-queue",
+          "pieceVersion": "~0.1.0",
+          "pieceType": "OFFICIAL",
+          "packageType": "REGISTRY",
+          "actionName": "add_to_queue",
+          "input": {
+            "items": ""
+          },
+          "inputUiInfo": {}
+        },
+        "valid": false,
+        "name": "step_N"
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "_industry": "consulting",
+  "_displayName": "شركة استشارات / مكتب محاماة / مكتب هندسي",
+  "_description": "أتمتات الاستشارات — leads، اجتماعات، عروض، عقود، فوترة",
+  "_version": "5.0",
+  "scenarios": [
+    {
+      "id": "cons-01",
+      "name": "عميل محتمل جديد (Lead)",
+      "nameEn": "New Lead Capture",
+      "description": "عميل يعبي فورم الموقع → يتسجل في CRM + يوصله ترحيب + إشعار الفريق",
+      "trigger": { "tool": "webhook", "event": "form_submission" },
+      "actions": [
+        { "tool": "hubspot", "action": "create_contact", "desc": "إنشاء جهة اتصال في CRM" },
+        { "tool": "gmail", "action": "send_email", "desc": "إيميل ترحيب + بروشور الخدمات" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "رسالة ودية + رابط حجز اجتماع" },
+        { "tool": "slack", "action": "send_channel_message", "desc": "إشعار فريق المبيعات" }
+      ],
+      "timeSaved": "15 دقيقة لكل lead",
+      "priority": "عالي"
+    },
+    {
+      "id": "cons-02",
+      "name": "تذكير اجتماع",
+      "nameEn": "Meeting Reminder",
+      "description": "قبل الاجتماع بساعة → تذكير للعميل والمستشار",
+      "trigger": { "tool": "google-calendar", "event": "new_or_updated_event" },
+      "actions": [
+        { "tool": "whatsapp", "action": "send_message", "desc": "تذكير العميل بالموعد والرابط" },
+        { "tool": "slack", "action": "send_channel_message", "desc": "تذكير المستشار" }
+      ],
+      "timeSaved": "5 دقائق لكل اجتماع",
+      "priority": "عالي"
+    },
+    {
+      "id": "cons-03",
+      "name": "ملخص بعد الاجتماع",
+      "nameEn": "Post-Meeting Summary",
+      "description": "بعد الاجتماع → AI يولّد ملخص + يرسله للعميل",
+      "trigger": { "tool": "webhook", "event": "meeting_ended" },
+      "actions": [
+        { "tool": "ai", "action": "askAi", "desc": "تلخيص ملاحظات الاجتماع وتحديد Action Items" },
+        { "tool": "gmail", "action": "send_email", "desc": "إرسال الملخص للعميل" },
+        { "tool": "google-sheets", "action": "insert_row", "desc": "تسجيل في سجل الاجتماعات" },
+        { "tool": "hubspot", "action": "create_note", "desc": "إضافة ملاحظة في CRM" }
+      ],
+      "timeSaved": "20 دقيقة لكل اجتماع",
+      "priority": "عالي"
+    },
+    {
+      "id": "cons-04",
+      "name": "متابعة العروض المعلقة",
+      "nameEn": "Pending Proposal Follow-up",
+      "description": "كل 3 أيام → فحص العروض اللي ما رد عليها العميل وتذكيره",
+      "trigger": { "tool": "schedule", "event": "cron_expression", "config": "0 10 * * 1,4" },
+      "actions": [
+        { "tool": "google-sheets", "action": "read_rows", "desc": "عروض معلقة أكثر من 3 أيام" },
+        { "tool": "ai", "action": "askAi", "desc": "صياغة رسالة متابعة مناسبة" },
+        { "tool": "gmail", "action": "send_email", "desc": "إرسال المتابعة" },
+        { "tool": "slack", "action": "send_channel_message", "desc": "تنبيه المستشار" }
+      ],
+      "timeSaved": "30 دقيقة أسبوعياً",
+      "priority": "متوسط"
+    },
+    {
+      "id": "cons-05",
+      "name": "تقرير أسبوعي للشريك",
+      "nameEn": "Weekly Partner Report",
+      "description": "كل أحد → ملخص الأسبوع: leads جديدة، اجتماعات، عقود، إيرادات",
+      "trigger": { "tool": "schedule", "event": "cron_expression", "config": "0 8 * * 0" },
+      "actions": [
+        { "tool": "google-sheets", "action": "read_rows", "desc": "جمع بيانات الأسبوع" },
+        { "tool": "ai", "action": "askAi", "desc": "تحليل الأداء + اقتراحات تحسين" },
+        { "tool": "gmail", "action": "send_email", "desc": "تقرير مفصل للشريك" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "ملخص سريع" }
+      ],
+      "timeSaved": "45 دقيقة أسبوعياً",
+      "priority": "متوسط"
+    }
+  ]
+}

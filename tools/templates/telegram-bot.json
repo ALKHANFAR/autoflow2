@@ -1,0 +1,32 @@
+{
+  "_autoflow": { "version": "5.0", "source": "manual-verified", "toolId": "telegram-bot", "toolNameAr": "بوت تلقرام" },
+  "piece": { "packageType": "REGISTRY", "pieceType": "OFFICIAL", "pieceName": "@activepieces/piece-telegram-bot", "pieceVersion": "~0.5.5" },
+  "auth": { "type": "SECRET_TEXT", "description": "Bot Token من @BotFather" },
+  "triggers": {
+    "new_message": {
+      "displayName": "New Message", "description": "رسالة جديدة للبوت", "type": "WEBHOOK",
+      "props": {},
+      "_copyPaste": { "type": "PIECE_TRIGGER", "settings": { "pieceName": "@activepieces/piece-telegram-bot", "pieceVersion": "~0.5.5", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "triggerName": "new_message", "input": {}, "inputUiInfo": {} }, "valid": false, "name": "trigger" }
+    }
+  },
+  "actions": {
+    "send_text_message": {
+      "displayName": "Send Text Message", "description": "يرسل رسالة نصية", "requireAuth": true,
+      "props": {
+        "chat_id": { "displayName": "Chat ID", "type": "SHORT_TEXT", "required": true, "description": "معرف المحادثة" },
+        "message": { "displayName": "Message", "type": "LONG_TEXT", "required": true, "description": "⚠️ الاسم message مو text" },
+        "format": { "displayName": "Format", "type": "DROPDOWN", "required": false, "description": "⚠️ الاسم format مو parse_mode", "defaultValue": "MarkdownV2" }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-telegram-bot", "pieceVersion": "~0.5.5", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "send_text_message", "input": { "chat_id": "", "message": "", "format": "MarkdownV2" }, "inputUiInfo": {} }, "valid": false, "name": "send_text_message" }
+    },
+    "send_media": {
+      "displayName": "Send Media", "description": "يرسل صورة أو ملف", "requireAuth": true,
+      "props": {
+        "chat_id": { "displayName": "Chat ID", "type": "SHORT_TEXT", "required": true },
+        "file": { "displayName": "File", "type": "FILE", "required": true },
+        "caption": { "displayName": "Caption", "type": "SHORT_TEXT", "required": false }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-telegram-bot", "pieceVersion": "~0.5.5", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "send_media", "input": { "chat_id": "", "file": "", "caption": "" }, "inputUiInfo": {} }, "valid": false, "name": "send_media" }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "_industry": "restaurant",
+  "_displayName": "مطعم / مطبخ سحابي / كافيه",
+  "_description": "أتمتات للمطاعم — طلبات، توصيل، تقييمات، إدارة الفروع",
+  "_version": "5.0",
+  "scenarios": [
+    {
+      "id": "rest-01",
+      "name": "طلب جديد → إشعار المطبخ",
+      "nameEn": "New Order to Kitchen",
+      "description": "طلب من التطبيق/الموقع → إشعار فوري للمطبخ + تأكيد للعميل",
+      "trigger": { "tool": "webhook", "event": "new_order" },
+      "actions": [
+        { "tool": "slack", "action": "send_channel_message", "desc": "إشعار قناة المطبخ بتفاصيل الطلب" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "تأكيد للعميل بالوقت المتوقع" },
+        { "tool": "google-sheets", "action": "insert_row", "desc": "تسجيل الطلب في جدول اليوم" }
+      ],
+      "timeSaved": "3 دقائق لكل طلب",
+      "priority": "عالي"
+    },
+    {
+      "id": "rest-02",
+      "name": "الطلب جاهز → إشعار السائق والعميل",
+      "nameEn": "Order Ready Notification",
+      "description": "المطبخ يعلّم الطلب جاهز → السائق والعميل يعرفون",
+      "trigger": { "tool": "webhook", "event": "order_ready" },
+      "actions": [
+        { "tool": "whatsapp", "action": "send_message", "desc": "إشعار السائق بعنوان التوصيل" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "إشعار العميل إن الطلب في الطريق" },
+        { "tool": "google-sheets", "action": "update_row", "desc": "تحديث حالة الطلب" }
+      ],
+      "timeSaved": "5 دقائق لكل طلب",
+      "priority": "عالي"
+    },
+    {
+      "id": "rest-03",
+      "name": "تقييم بعد التوصيل",
+      "nameEn": "Post-Delivery Rating",
+      "description": "بعد 30 دقيقة من التوصيل → طلب تقييم من العميل",
+      "trigger": { "tool": "webhook", "event": "order_delivered" },
+      "actions": [
+        { "tool": "whatsapp", "action": "send_message", "desc": "رسالة شكر + رابط تقييم" }
+      ],
+      "timeSaved": "2 دقيقة لكل طلب",
+      "priority": "متوسط"
+    },
+    {
+      "id": "rest-04",
+      "name": "تقرير مبيعات يومي",
+      "nameEn": "Daily Sales Summary",
+      "description": "كل ليلة → ملخص الطلبات والإيرادات ونسبة التقييمات",
+      "trigger": { "tool": "schedule", "event": "cron_expression", "config": "0 23 * * *" },
+      "actions": [
+        { "tool": "google-sheets", "action": "read_rows", "desc": "جمع بيانات طلبات اليوم" },
+        { "tool": "ai", "action": "askAi", "desc": "تحليل: أكثر صنف طلباً، متوسط الطلب، التقييمات" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "تقرير مختصر للمالك" }
+      ],
+      "timeSaved": "20 دقيقة يومياً",
+      "priority": "متوسط"
+    },
+    {
+      "id": "rest-05",
+      "name": "عرض خاص للعملاء المتكررين",
+      "nameEn": "Loyal Customer Offer",
+      "description": "كل أسبوع → يحدد أكثر العملاء طلباً ويرسل لهم عرض خاص",
+      "trigger": { "tool": "schedule", "event": "cron_expression", "config": "0 10 * * 4" },
+      "actions": [
+        { "tool": "google-sheets", "action": "read_rows", "desc": "أكثر 10 عملاء طلباً" },
+        { "tool": "ai", "action": "askAi", "desc": "صياغة عرض شخصي لكل عميل" },
+        { "tool": "whatsapp", "action": "send_message", "desc": "إرسال العرض الخاص" }
+      ],
+      "timeSaved": "45 دقيقة أسبوعياً",
+      "priority": "متوسط"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "_autoflow": { "version": "5.0", "source": "manual-verified", "toolId": "google-calendar", "toolNameAr": "تقويم قوقل" },
+  "piece": { "packageType": "REGISTRY", "pieceType": "OFFICIAL", "pieceName": "@activepieces/piece-google-calendar", "pieceVersion": "~0.8.3" },
+  "auth": { "type": "OAUTH2" },
+  "triggers": {
+    "new_or_updated_event": { "displayName": "New or Updated Event", "type": "POLLING",
+      "props": { "calendarId": { "displayName": "Calendar", "type": "DROPDOWN", "required": true } },
+      "_copyPaste": { "type": "PIECE_TRIGGER", "settings": { "pieceName": "@activepieces/piece-google-calendar", "pieceVersion": "~0.8.3", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "triggerName": "new_or_updated_event", "input": { "calendarId": "" }, "inputUiInfo": {} }, "valid": false, "name": "trigger" } }
+  },
+  "actions": {
+    "create_event": { "displayName": "Create Event", "requireAuth": true,
+      "props": {
+        "calendarId": { "displayName": "Calendar", "type": "DROPDOWN", "required": true },
+        "title": { "displayName": "Title", "type": "SHORT_TEXT", "required": true },
+        "start": { "displayName": "Start Date/Time", "type": "SHORT_TEXT", "required": true },
+        "end": { "displayName": "End Date/Time", "type": "SHORT_TEXT", "required": true },
+        "description": { "displayName": "Description", "type": "LONG_TEXT", "required": false },
+        "location": { "displayName": "Location", "type": "SHORT_TEXT", "required": false },
+        "attendees": { "displayName": "Attendees", "type": "ARRAY", "required": false }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-google-calendar", "pieceVersion": "~0.8.3", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "create_event", "input": { "calendarId": "", "title": "", "start": "", "end": "" }, "inputUiInfo": {} }, "valid": false, "name": "create_event" } }
+  }
+}

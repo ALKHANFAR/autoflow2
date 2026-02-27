@@ -1,0 +1,19 @@
+{
+  "_autoflow": { "version": "5.0", "source": "manual-verified", "toolId": "http", "toolNameAr": "طلب HTTP" },
+  "piece": { "packageType": "REGISTRY", "pieceType": "OFFICIAL", "pieceName": "@activepieces/piece-http", "pieceVersion": "~0.11.6" },
+  "auth": { "type": "NONE" },
+  "triggers": {},
+  "actions": {
+    "send_request": { "displayName": "Send HTTP Request", "requireAuth": false,
+      "props": {
+        "method": { "displayName": "Method", "type": "DROPDOWN", "required": true, "description": "GET, POST, PUT, DELETE, PATCH" },
+        "url": { "displayName": "URL", "type": "SHORT_TEXT", "required": true },
+        "headers": { "displayName": "Headers", "type": "DYNAMIC", "required": false },
+        "body": { "displayName": "Body", "type": "LONG_TEXT", "required": false },
+        "body_type": { "displayName": "Body Type", "type": "DROPDOWN", "required": false, "defaultValue": "json" },
+        "queryParams": { "displayName": "Query Parameters", "type": "DYNAMIC", "required": false },
+        "authentication": { "displayName": "Authentication", "type": "CUSTOM_AUTH", "required": false }
+      },
+      "_copyPaste": { "type": "PIECE", "settings": { "pieceName": "@activepieces/piece-http", "pieceVersion": "~0.11.6", "pieceType": "OFFICIAL", "packageType": "REGISTRY", "actionName": "send_request", "input": { "method": "POST", "url": "", "headers": {}, "body": "", "body_type": "json" }, "inputUiInfo": {} }, "valid": false, "name": "send_request" } }
+  }
+}

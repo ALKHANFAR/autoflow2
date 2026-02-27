@@ -1,0 +1,111 @@
+{
+  "_version": "5.0",
+  "_description": "محرك الاقتراحات — يقترح أتمتات ذكية حسب نوع الشركة والأدوات المتصلة",
+  "rules": {
+    "maxSuggestions": 5,
+    "prioritizeBy": ["timeSaved", "priority", "connectedTools"],
+    "showTimeSaved": true,
+    "showDifficulty": true
+  },
+  "universalSuggestions": [
+    {
+      "id": "uni-01",
+      "name": "بوت رد تلقائي على الواتساب",
+      "description": "لما أحد يرسل واتساب → AI يرد تلقائياً حسب نوع السؤال",
+      "tools": ["whatsapp", "ai"],
+      "timeSaved": "ساعتين يومياً",
+      "difficulty": "سهل",
+      "industries": ["all"]
+    },
+    {
+      "id": "uni-02",
+      "name": "تقرير أسبوعي تلقائي",
+      "description": "كل أحد → AI يجمع البيانات ويولّد تقرير ويرسله",
+      "tools": ["schedule", "google-sheets", "ai", "whatsapp"],
+      "timeSaved": "45 دقيقة أسبوعياً",
+      "difficulty": "سهل",
+      "industries": ["all"]
+    },
+    {
+      "id": "uni-03",
+      "name": "تحويل الإيميلات لمهام",
+      "description": "إيميل جديد فيه كلمة 'عاجل' → يتحول لمهمة في المشروع",
+      "tools": ["gmail", "google-sheets"],
+      "timeSaved": "30 دقيقة يومياً",
+      "difficulty": "سهل",
+      "industries": ["all"]
+    },
+    {
+      "id": "uni-04",
+      "name": "نشر تلقائي في السوشال ميديا",
+      "description": "تنشر محتوى → AI يعيد صياغته لتويتر وينشره",
+      "tools": ["schedule", "ai", "twitter"],
+      "timeSaved": "20 دقيقة لكل منشور",
+      "difficulty": "متوسط",
+      "industries": ["all"]
+    },
+    {
+      "id": "uni-05",
+      "name": "مزامنة جهات الاتصال",
+      "description": "عميل جديد في أي مكان → يتسجل تلقائياً في كل الأنظمة",
+      "tools": ["webhook", "hubspot", "google-sheets", "mailchimp"],
+      "timeSaved": "10 دقائق لكل عميل",
+      "difficulty": "متوسط",
+      "industries": ["all"]
+    }
+  ],
+  "industrySuggestions": {
+    "clinic": {
+      "topPick": "clinic-01",
+      "message": "عيادتك تقدر توفّر 3+ ساعات يومياً بأتمتة المواعيد والتذكيرات",
+      "scenarios": ["clinic-01", "clinic-02", "clinic-03", "clinic-04", "clinic-05", "clinic-06"]
+    },
+    "ecommerce": {
+      "topPick": "ecom-01",
+      "message": "متجرك يقدر يوفّر 2+ ساعة يومياً ويزيد المبيعات 15% بأتمتة الطلبات",
+      "scenarios": ["ecom-01", "ecom-02", "ecom-03", "ecom-04", "ecom-05", "ecom-06"]
+    },
+    "restaurant": {
+      "topPick": "rest-01",
+      "message": "مطعمك يقدر يسرّع التوصيل ويرفع التقييمات بأتمتة الطلبات",
+      "scenarios": ["rest-01", "rest-02", "rest-03", "rest-04", "rest-05"]
+    },
+    "consulting": {
+      "topPick": "cons-01",
+      "message": "مكتبك يقدر يوفّر 5+ ساعات أسبوعياً بأتمتة المتابعات والتقارير",
+      "scenarios": ["cons-01", "cons-02", "cons-03", "cons-04", "cons-05"]
+    },
+    "construction": {
+      "topPick": "const-01",
+      "message": "شركتك تقدر توفّر ساعة يومياً بأتمتة التقارير والفواتير",
+      "scenarios": ["const-01", "const-02", "const-03", "const-04", "const-05"]
+    },
+    "training": {
+      "topPick": "train-01",
+      "message": "أكاديميتك تقدر تخدم ضعف المتدربين بأتمتة التسجيل والشهادات",
+      "scenarios": ["train-01", "train-02", "train-03", "train-04", "train-05"]
+    }
+  },
+  "toolBasedSuggestions": {
+    "whatsapp+google-sheets": [
+      "تأكيدات تلقائية من الجدول",
+      "تذكيرات يومية من بيانات الجدول",
+      "تقارير أسبوعية من الجدول عبر واتساب"
+    ],
+    "gmail+hubspot": [
+      "تحويل إيميلات العملاء لجهات اتصال في CRM",
+      "متابعة تلقائية لـ leads الجديدة",
+      "تقرير أسبوعي بحالة العملاء"
+    ],
+    "stripe+gmail": [
+      "إيصال دفع تلقائي",
+      "تنبيه بدفعات فاشلة",
+      "تقرير إيرادات شهري"
+    ],
+    "shopify+whatsapp": [
+      "تأكيد طلب فوري",
+      "تحديث حالة شحن",
+      "طلب تقييم بعد التوصيل"
+    ]
+  }
+}
